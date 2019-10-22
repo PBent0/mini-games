@@ -1,0 +1,57 @@
+let humanScore = 0;
+let computerScore = 0;
+let currentRoundNumber = 1;
+
+function generateTarget(){
+return Math.floor(Math.random()*9)
+}
+function generateComputer(){
+  var computer=Math.floor(Math.random()*9)
+return computer
+}
+
+function compareGuesses(human, computer, target){
+  if(human===target){
+    return true
+  }
+  else if(human===computer){
+    return true
+  }
+  else if(target-human===computer-target){
+    return true
+  }
+  else if(target===0 && human<computer){
+      return true
+  }
+  else if(target-human>=0&&target-computer>=0){
+    if(target<5 && target-human>target-computer){
+    return true
+  }
+    else if (target>5 && target-human<target-computer){
+      return true
+    }
+  }
+  else if(computer===target){
+    return false
+  }
+  else{
+    return false
+  }
+}
+function updateScore(){
+  var humanScore=0;
+  var computerScore=0;
+  if (compareGuesses===true){
+    returnhumanScore++
+    return humanScore;
+  }
+  else{
+    computerScore++
+    return computerScore;
+  }
+}
+function advanceRound(){
+  var currentRoundNumber=1
+  currentRoundNumber=currentRoundNumber++
+  return currentRoundNumber
+}
